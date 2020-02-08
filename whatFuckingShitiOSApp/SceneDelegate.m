@@ -1,4 +1,5 @@
 #import "SceneDelegate.h"
+#import "ViewController.h"
 
 @interface SceneDelegate ()
 
@@ -7,10 +8,40 @@
 @implementation SceneDelegate
 
 
+
+
 - (void)scene:(UIScene *)scene willConnectToSession:(UISceneSession *)session options:(UISceneConnectionOptions *)connectionOptions {
     // Use this method to optionally configure and attach the UIWindow `window` to the provided UIWindowScene `scene`.
     // If using a storyboard, the `window` property will automatically be initialized and attached to the scene.
     // This delegate does not imply the connecting scene or session are new (see `application:configurationForConnectingSceneSession` instead).
+    
+    self.window = [[UIWindow alloc] initWithWindowScene:(UIWindowScene *)scene];
+    UITabBarController *tabbarController = [[UITabBarController alloc] init];
+    ViewController *vc = [[ViewController alloc] init];
+    UINavigationController * uiNavigationController = [[UINavigationController alloc] initWithRootViewController:vc];
+
+    //UIViewController *controller1 = [[UIViewController alloc] init];
+    //controller1.view.backgroundColor = [UIColor redColor];
+    uiNavigationController.tabBarItem.title = @"微信";
+//controller1.tabBarItem.image = [UIImage imageNamed:@""];
+
+    UIViewController *controller2 = [[UIViewController alloc] init];
+    controller2.view.backgroundColor = [UIColor greenColor];
+    controller2.tabBarItem.title = @"通讯录";
+
+    UIViewController *controller3 = [[UIViewController alloc] init];
+    controller3.view.backgroundColor = [UIColor blueColor];
+    controller3.tabBarItem.title = @"发现";
+
+    UIViewController *controller4 = [[UIViewController alloc] init];
+    controller4.view.backgroundColor = [UIColor yellowColor];
+    controller4.tabBarItem.title = @"我";
+
+    [tabbarController setViewControllers:@[uiNavigationController, controller2, controller3, controller4]];
+
+    self.window.rootViewController = tabbarController;
+    [self.window makeKeyAndVisible];
+    
 }
 
 
@@ -44,6 +75,7 @@
     // Called as the scene transitions from the foreground to the background.
     // Use this method to save data, release shared resources, and store enough scene-specific state information
     // to restore the scene back to its current state.
+   
 }
 
 
