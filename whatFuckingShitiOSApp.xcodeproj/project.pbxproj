@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		BCA33FAC23FEC0DE009BC6A1 /* GTDeleteCellView.m in Sources */ = {isa = PBXBuildFile; fileRef = BCA33FAB23FEC0DE009BC6A1 /* GTDeleteCellView.m */; };
 		BCCA96D523EEF63D00C8D9F6 /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = BCCA96D423EEF63D00C8D9F6 /* AppDelegate.m */; };
 		BCCA96D823EEF63D00C8D9F6 /* SceneDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = BCCA96D723EEF63D00C8D9F6 /* SceneDelegate.m */; };
 		BCCA96DB23EEF63D00C8D9F6 /* ViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = BCCA96DA23EEF63D00C8D9F6 /* ViewController.m */; };
@@ -14,9 +15,15 @@
 		BCCA96E023EEF63F00C8D9F6 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = BCCA96DF23EEF63F00C8D9F6 /* Assets.xcassets */; };
 		BCCA96E323EEF63F00C8D9F6 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = BCCA96E123EEF63F00C8D9F6 /* LaunchScreen.storyboard */; };
 		BCCA96E623EEF63F00C8D9F6 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = BCCA96E523EEF63F00C8D9F6 /* main.m */; };
+		BCCA973823F02AE200C8D9F6 /* GTPicViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = BCCA973723F02AE200C8D9F6 /* GTPicViewController.m */; };
+		BCE8B88A23F119DD0058F258 /* GtRecommendViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = BCE8B88923F119DD0058F258 /* GtRecommendViewController.m */; };
+		BCE8B88D23F16FEB0058F258 /* GTNormalTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = BCE8B88C23F16FEB0058F258 /* GTNormalTableViewCell.m */; };
+		BCE8B89023F2E1580058F258 /* GTDetailViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = BCE8B88F23F2E1580058F258 /* GTDetailViewController.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		BCA33FAA23FEC0DE009BC6A1 /* GTDeleteCellView.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = GTDeleteCellView.h; sourceTree = "<group>"; };
+		BCA33FAB23FEC0DE009BC6A1 /* GTDeleteCellView.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = GTDeleteCellView.m; sourceTree = "<group>"; };
 		BCCA96D023EEF63D00C8D9F6 /* whatFuckingShitiOSApp.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = whatFuckingShitiOSApp.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		BCCA96D323EEF63D00C8D9F6 /* AppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AppDelegate.h; sourceTree = "<group>"; };
 		BCCA96D423EEF63D00C8D9F6 /* AppDelegate.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = AppDelegate.m; sourceTree = "<group>"; };
@@ -29,6 +36,14 @@
 		BCCA96E223EEF63F00C8D9F6 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		BCCA96E423EEF63F00C8D9F6 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		BCCA96E523EEF63F00C8D9F6 /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
+		BCCA973623F02AE200C8D9F6 /* GTPicViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = GTPicViewController.h; sourceTree = "<group>"; };
+		BCCA973723F02AE200C8D9F6 /* GTPicViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = GTPicViewController.m; sourceTree = "<group>"; };
+		BCE8B88823F119DD0058F258 /* GtRecommendViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = GtRecommendViewController.h; sourceTree = "<group>"; };
+		BCE8B88923F119DD0058F258 /* GtRecommendViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = GtRecommendViewController.m; sourceTree = "<group>"; };
+		BCE8B88B23F16FEB0058F258 /* GTNormalTableViewCell.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = GTNormalTableViewCell.h; sourceTree = "<group>"; };
+		BCE8B88C23F16FEB0058F258 /* GTNormalTableViewCell.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = GTNormalTableViewCell.m; sourceTree = "<group>"; };
+		BCE8B88E23F2E1580058F258 /* GTDetailViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = GTDetailViewController.h; sourceTree = "<group>"; };
+		BCE8B88F23F2E1580058F258 /* GTDetailViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = GTDetailViewController.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -72,6 +87,16 @@
 				BCCA96E123EEF63F00C8D9F6 /* LaunchScreen.storyboard */,
 				BCCA96E423EEF63F00C8D9F6 /* Info.plist */,
 				BCCA96E523EEF63F00C8D9F6 /* main.m */,
+				BCCA973623F02AE200C8D9F6 /* GTPicViewController.h */,
+				BCCA973723F02AE200C8D9F6 /* GTPicViewController.m */,
+				BCE8B88823F119DD0058F258 /* GtRecommendViewController.h */,
+				BCE8B88923F119DD0058F258 /* GtRecommendViewController.m */,
+				BCE8B88B23F16FEB0058F258 /* GTNormalTableViewCell.h */,
+				BCE8B88C23F16FEB0058F258 /* GTNormalTableViewCell.m */,
+				BCE8B88E23F2E1580058F258 /* GTDetailViewController.h */,
+				BCE8B88F23F2E1580058F258 /* GTDetailViewController.m */,
+				BCA33FAA23FEC0DE009BC6A1 /* GTDeleteCellView.h */,
+				BCA33FAB23FEC0DE009BC6A1 /* GTDeleteCellView.m */,
 			);
 			path = whatFuckingShitiOSApp;
 			sourceTree = "<group>";
@@ -146,7 +171,12 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				BCE8B89023F2E1580058F258 /* GTDetailViewController.m in Sources */,
+				BCA33FAC23FEC0DE009BC6A1 /* GTDeleteCellView.m in Sources */,
+				BCE8B88D23F16FEB0058F258 /* GTNormalTableViewCell.m in Sources */,
 				BCCA96DB23EEF63D00C8D9F6 /* ViewController.m in Sources */,
+				BCCA973823F02AE200C8D9F6 /* GTPicViewController.m in Sources */,
+				BCE8B88A23F119DD0058F258 /* GtRecommendViewController.m in Sources */,
 				BCCA96D523EEF63D00C8D9F6 /* AppDelegate.m in Sources */,
 				BCCA96E623EEF63F00C8D9F6 /* main.m in Sources */,
 				BCCA96D823EEF63D00C8D9F6 /* SceneDelegate.m in Sources */,

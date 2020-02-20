@@ -8,6 +8,8 @@
 
 #import "AppDelegate.h"
 #import "ViewController.h"
+#import "GTPicViewController.h"
+#import "GtRecommendViewController.h"
 
 @interface AppDelegate ()<UITabBarControllerDelegate>
 
@@ -21,31 +23,25 @@
     self.window = [[UIWindow alloc] initWithFrame:[[UIScreen mainScreen] bounds]];
     //self.window = [[UIWindow alloc] initWithFrame:[[UIScreen mainScreen] bounds]];
     UITabBarController *tabbarController = [[UITabBarController alloc] init];
-    ViewController *vc = [[ViewController alloc] init];
+    UIViewController *controller1 = [[UIViewController alloc] init];
 
     //UIViewController *controller1 = [[UIViewController alloc] init];
-    //controller1.view.backgroundColor = [UIColor redColor];
-    vc.tabBarItem.title = @"微信";
+    controller1.view.backgroundColor = [UIColor whiteColor];
+    controller1.tabBarItem.title = @"微信";
     //controller1.tabBarItem.image = [UIImage imageNamed:@""];
 
-    UIViewController *controller2 = [[UIViewController alloc] init];
+    UIViewController *controller2 = [[ViewController alloc] init];
     controller2.view.backgroundColor = [UIColor greenColor];
     controller2.tabBarItem.title = @"通讯录";
 
-    UIViewController *controller3 = [[UIViewController alloc] init];
-    controller3.view.backgroundColor = [UIColor blueColor];
-    controller3.tabBarItem.title = @"发现";
+    GTPicViewController *gtpvc = [[GTPicViewController alloc] init];
+    GtRecommendViewController *controller4 = [[GtRecommendViewController alloc] init];
+    
 
-    UIViewController *controller4 = [[UIViewController alloc] init];
-    controller4.view.backgroundColor = [UIColor yellowColor];
-    controller4.tabBarItem.title = @"我";
-
-    [tabbarController setViewControllers:@[vc, controller2, controller3, controller4]];
+    [tabbarController setViewControllers:@[controller1, controller2, gtpvc, controller4]];
     tabbarController.delegate = self;
         
     UINavigationController * uiNavigationController = [[UINavigationController alloc] initWithRootViewController:tabbarController];
-        
-
     self.window.rootViewController = uiNavigationController;
     [self.window makeKeyAndVisible];
         
