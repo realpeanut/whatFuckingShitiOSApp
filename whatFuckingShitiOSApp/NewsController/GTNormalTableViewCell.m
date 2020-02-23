@@ -69,10 +69,18 @@
         //按钮视图
         [self.contentView addSubview:({
             self.uiButton = [[UIButton alloc] initWithFrame:CGRectMake(260, 80, 30, 20)];
-            self.uiButton.backgroundColor = [UIColor blueColor];
+            //self.uiButton.backgroundColor = [UIColor blueColor];
             [self.uiButton setTitle:@"X" forState:UIControlStateNormal];//通常状态
-            [self.uiButton setTitle:@"V" forState:UIControlStateHighlighted];//点击状态
+            //[self.uiButton setTitle:@"V" forState:UIControlStateHighlighted];//点击状态
             [self.uiButton addTarget:self action:@selector(deleteButtonfunc) forControlEvents:UIControlEventTouchUpInside];//绑定点击事件
+            //设置圆角
+            self.uiButton.layer.cornerRadius = 10;
+            self.uiButton.layer.masksToBounds = YES;
+            
+            //设置边框颜色
+            self.uiButton.layer.borderColor = [UIColor lightGrayColor].CGColor;
+            //设置边框宽度
+            self.uiButton.layer.borderWidth = 2;
             self.uiButton;
         })];
         
@@ -84,7 +92,10 @@
 
 -(void)deleteButtonfunc
 {
-    
+    NSLog(@"duan");
+    if (self.delegate && [self.delegate  respondsToSelector:@selector(tableViewCell:clickDeleteButton:)]) {
+        [self.delegate tableViewCell:self clickDeleteButton:self.uiButton];
+    }
 }
 
 -(void)layoutTableViewCell

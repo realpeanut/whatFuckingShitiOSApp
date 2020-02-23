@@ -7,7 +7,7 @@
 //
 
 #import "AppDelegate.h"
-#import "ViewController.h"
+#import "GTNewsViewController.h"
 #import "GTPicViewController.h"
 #import "GtRecommendViewController.h"
 
@@ -30,7 +30,7 @@
     controller1.tabBarItem.title = @"微信";
     //controller1.tabBarItem.image = [UIImage imageNamed:@""];
 
-    UIViewController *controller2 = [[ViewController alloc] init];
+    UIViewController *controller2 = [[GTNewsViewController alloc] init];
     controller2.view.backgroundColor = [UIColor greenColor];
     controller2.tabBarItem.title = @"通讯录";
 

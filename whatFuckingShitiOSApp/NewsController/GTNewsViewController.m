@@ -6,16 +6,19 @@
 //  Copyright © 2020 张建东. All rights reserved.
 //
 
-#import "ViewController.h"
+#import "GTNewsViewController.h"
 #import "GTNormalTableViewCell.h"
 #import "GTDetailViewController.h"
+#import "GTDeleteCellView.h"
+#import "GTListLoader.h"
 
-@interface ViewController ()<UITableViewDataSource,UITableViewDelegate,GTNormalTableViewCellDelegate>//实现UITableViewDataSource协议
-
+@interface GTNewsViewController ()<UITableViewDataSource,UITableViewDelegate,GTNormalTableViewCellDelegate>//实现UITableViewDataSource协议
+@property(nonatomic,strong,readwrite)GTListLoader *listLoader;
 @end
 
-@implementation ViewController
+@implementation GTNewsViewController
 
+#pragma mark - lefe cycle
 - (void)viewDidLoad {
     [super viewDidLoad];
 //    [self.view addSubview:({
@@ -46,7 +49,11 @@
     utv.dataSource = self;
     utv.delegate = self;
     [self.view addSubview:utv];
+    self.listLoader = [[GTListLoader alloc] init];
+    [self.listLoader loadListData];
 }
+
+#pragma mark - UITableViewDelegate
 
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section
 {
@@ -88,6 +95,9 @@
 
 
 - (void)tableViewCell:(nonnull UITableViewCell *)tableViewCell clickDeleteButton:(nonnull UIButton *)deleteButton {
+    
+    GTDeleteCellView *deleteView = [[GTDeleteCellView alloc] initWithFrame:self.view.bounds];
+    [deleteView showDeleteViewFromPoint:CGPointMake(0, 0)];
     
 }
 

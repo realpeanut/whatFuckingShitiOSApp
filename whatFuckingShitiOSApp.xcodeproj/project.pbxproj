@@ -7,10 +7,12 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		4FF8A0E3E69220990B381DA3 /* libPods-whatFuckingShitiOSApp.a in Frameworks */ = {isa = PBXBuildFile; fileRef = CBECE472AFADC6798B1EE09F /* libPods-whatFuckingShitiOSApp.a */; };
 		BCA33FAC23FEC0DE009BC6A1 /* GTDeleteCellView.m in Sources */ = {isa = PBXBuildFile; fileRef = BCA33FAB23FEC0DE009BC6A1 /* GTDeleteCellView.m */; };
+		BCA33FB024001768009BC6A1 /* GTListLoader.m in Sources */ = {isa = PBXBuildFile; fileRef = BCA33FAF24001768009BC6A1 /* GTListLoader.m */; };
 		BCCA96D523EEF63D00C8D9F6 /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = BCCA96D423EEF63D00C8D9F6 /* AppDelegate.m */; };
 		BCCA96D823EEF63D00C8D9F6 /* SceneDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = BCCA96D723EEF63D00C8D9F6 /* SceneDelegate.m */; };
-		BCCA96DB23EEF63D00C8D9F6 /* ViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = BCCA96DA23EEF63D00C8D9F6 /* ViewController.m */; };
+		BCCA96DB23EEF63D00C8D9F6 /* GTNewsViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = BCCA96DA23EEF63D00C8D9F6 /* GTNewsViewController.m */; };
 		BCCA96DE23EEF63D00C8D9F6 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = BCCA96DC23EEF63D00C8D9F6 /* Main.storyboard */; };
 		BCCA96E023EEF63F00C8D9F6 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = BCCA96DF23EEF63F00C8D9F6 /* Assets.xcassets */; };
 		BCCA96E323EEF63F00C8D9F6 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = BCCA96E123EEF63F00C8D9F6 /* LaunchScreen.storyboard */; };
@@ -22,15 +24,19 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		7DD49A9A78A1431EDA842C4F /* Pods-whatFuckingShitiOSApp.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-whatFuckingShitiOSApp.release.xcconfig"; path = "Target Support Files/Pods-whatFuckingShitiOSApp/Pods-whatFuckingShitiOSApp.release.xcconfig"; sourceTree = "<group>"; };
+		94E8FB57747C7C125E19D33C /* Pods-whatFuckingShitiOSApp.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-whatFuckingShitiOSApp.debug.xcconfig"; path = "Target Support Files/Pods-whatFuckingShitiOSApp/Pods-whatFuckingShitiOSApp.debug.xcconfig"; sourceTree = "<group>"; };
 		BCA33FAA23FEC0DE009BC6A1 /* GTDeleteCellView.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = GTDeleteCellView.h; sourceTree = "<group>"; };
 		BCA33FAB23FEC0DE009BC6A1 /* GTDeleteCellView.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = GTDeleteCellView.m; sourceTree = "<group>"; };
+		BCA33FAE24001768009BC6A1 /* GTListLoader.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = GTListLoader.h; sourceTree = "<group>"; };
+		BCA33FAF24001768009BC6A1 /* GTListLoader.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = GTListLoader.m; sourceTree = "<group>"; };
 		BCCA96D023EEF63D00C8D9F6 /* whatFuckingShitiOSApp.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = whatFuckingShitiOSApp.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		BCCA96D323EEF63D00C8D9F6 /* AppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AppDelegate.h; sourceTree = "<group>"; };
 		BCCA96D423EEF63D00C8D9F6 /* AppDelegate.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = AppDelegate.m; sourceTree = "<group>"; };
 		BCCA96D623EEF63D00C8D9F6 /* SceneDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = SceneDelegate.h; sourceTree = "<group>"; };
 		BCCA96D723EEF63D00C8D9F6 /* SceneDelegate.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = SceneDelegate.m; sourceTree = "<group>"; };
-		BCCA96D923EEF63D00C8D9F6 /* ViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = ViewController.h; sourceTree = "<group>"; };
-		BCCA96DA23EEF63D00C8D9F6 /* ViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = ViewController.m; sourceTree = "<group>"; };
+		BCCA96D923EEF63D00C8D9F6 /* GTNewsViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = GTNewsViewController.h; sourceTree = "<group>"; };
+		BCCA96DA23EEF63D00C8D9F6 /* GTNewsViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = GTNewsViewController.m; sourceTree = "<group>"; };
 		BCCA96DD23EEF63D00C8D9F6 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
 		BCCA96DF23EEF63F00C8D9F6 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		BCCA96E223EEF63F00C8D9F6 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
@@ -44,6 +50,7 @@
 		BCE8B88C23F16FEB0058F258 /* GTNormalTableViewCell.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = GTNormalTableViewCell.m; sourceTree = "<group>"; };
 		BCE8B88E23F2E1580058F258 /* GTDetailViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = GTDetailViewController.h; sourceTree = "<group>"; };
 		BCE8B88F23F2E1580058F258 /* GTDetailViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = GTDetailViewController.m; sourceTree = "<group>"; };
+		CBECE472AFADC6798B1EE09F /* libPods-whatFuckingShitiOSApp.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-whatFuckingShitiOSApp.a"; sourceTree = BUILT_PRODUCTS_DIR; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -51,17 +58,62 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				4FF8A0E3E69220990B381DA3 /* libPods-whatFuckingShitiOSApp.a in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		08AE67C111C5EEF2BB5B2290 /* Pods */ = {
+			isa = PBXGroup;
+			children = (
+				94E8FB57747C7C125E19D33C /* Pods-whatFuckingShitiOSApp.debug.xcconfig */,
+				7DD49A9A78A1431EDA842C4F /* Pods-whatFuckingShitiOSApp.release.xcconfig */,
+			);
+			name = Pods;
+			path = Pods;
+			sourceTree = "<group>";
+		};
+		3EC4FE5AC58BA1417577A84C /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				CBECE472AFADC6798B1EE09F /* libPods-whatFuckingShitiOSApp.a */,
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
+		BCA33FAD24001341009BC6A1 /* NewsController */ = {
+			isa = PBXGroup;
+			children = (
+				BCCA96D923EEF63D00C8D9F6 /* GTNewsViewController.h */,
+				BCCA96DA23EEF63D00C8D9F6 /* GTNewsViewController.m */,
+				BCA33FAA23FEC0DE009BC6A1 /* GTDeleteCellView.h */,
+				BCE8B88B23F16FEB0058F258 /* GTNormalTableViewCell.h */,
+				BCE8B88C23F16FEB0058F258 /* GTNormalTableViewCell.m */,
+				BCA33FAB23FEC0DE009BC6A1 /* GTDeleteCellView.m */,
+				BCE8B88E23F2E1580058F258 /* GTDetailViewController.h */,
+				BCE8B88F23F2E1580058F258 /* GTDetailViewController.m */,
+			);
+			path = NewsController;
+			sourceTree = "<group>";
+		};
+		BCA33FB124001787009BC6A1 /* Loader */ = {
+			isa = PBXGroup;
+			children = (
+				BCA33FAE24001768009BC6A1 /* GTListLoader.h */,
+				BCA33FAF24001768009BC6A1 /* GTListLoader.m */,
+			);
+			path = Loader;
+			sourceTree = "<group>";
+		};
 		BCCA96C723EEF63D00C8D9F6 = {
 			isa = PBXGroup;
 			children = (
 				BCCA96D223EEF63D00C8D9F6 /* whatFuckingShitiOSApp */,
 				BCCA96D123EEF63D00C8D9F6 /* Products */,
+				08AE67C111C5EEF2BB5B2290 /* Pods */,
+				3EC4FE5AC58BA1417577A84C /* Frameworks */,
 			);
 			sourceTree = "<group>";
 		};
@@ -76,12 +128,12 @@
 		BCCA96D223EEF63D00C8D9F6 /* whatFuckingShitiOSApp */ = {
 			isa = PBXGroup;
 			children = (
+				BCA33FB124001787009BC6A1 /* Loader */,
+				BCA33FAD24001341009BC6A1 /* NewsController */,
 				BCCA96D323EEF63D00C8D9F6 /* AppDelegate.h */,
 				BCCA96D423EEF63D00C8D9F6 /* AppDelegate.m */,
 				BCCA96D623EEF63D00C8D9F6 /* SceneDelegate.h */,
 				BCCA96D723EEF63D00C8D9F6 /* SceneDelegate.m */,
-				BCCA96D923EEF63D00C8D9F6 /* ViewController.h */,
-				BCCA96DA23EEF63D00C8D9F6 /* ViewController.m */,
 				BCCA96DC23EEF63D00C8D9F6 /* Main.storyboard */,
 				BCCA96DF23EEF63F00C8D9F6 /* Assets.xcassets */,
 				BCCA96E123EEF63F00C8D9F6 /* LaunchScreen.storyboard */,
@@ -91,12 +143,6 @@
 				BCCA973723F02AE200C8D9F6 /* GTPicViewController.m */,
 				BCE8B88823F119DD0058F258 /* GtRecommendViewController.h */,
 				BCE8B88923F119DD0058F258 /* GtRecommendViewController.m */,
-				BCE8B88B23F16FEB0058F258 /* GTNormalTableViewCell.h */,
-				BCE8B88C23F16FEB0058F258 /* GTNormalTableViewCell.m */,
-				BCE8B88E23F2E1580058F258 /* GTDetailViewController.h */,
-				BCE8B88F23F2E1580058F258 /* GTDetailViewController.m */,
-				BCA33FAA23FEC0DE009BC6A1 /* GTDeleteCellView.h */,
-				BCA33FAB23FEC0DE009BC6A1 /* GTDeleteCellView.m */,
 			);
 			path = whatFuckingShitiOSApp;
 			sourceTree = "<group>";
@@ -108,6 +154,7 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = BCCA96E923EEF63F00C8D9F6 /* Build configuration list for PBXNativeTarget "whatFuckingShitiOSApp" */;
 			buildPhases = (
+				5F383C0164A3089F0AAB9723 /* [CP] Check Pods Manifest.lock */,
 				BCCA96CC23EEF63D00C8D9F6 /* Sources */,
 				BCCA96CD23EEF63D00C8D9F6 /* Frameworks */,
 				BCCA96CE23EEF63D00C8D9F6 /* Resources */,
@@ -166,6 +213,31 @@
 		};
 /* End PBXResourcesBuildPhase section */
 
+/* Begin PBXShellScriptBuildPhase section */
+		5F383C0164A3089F0AAB9723 /* [CP] Check Pods Manifest.lock */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+			);
+			inputPaths = (
+				"${PODS_PODFILE_DIR_PATH}/Podfile.lock",
+				"${PODS_ROOT}/Manifest.lock",
+			);
+			name = "[CP] Check Pods Manifest.lock";
+			outputFileListPaths = (
+			);
+			outputPaths = (
+				"$(DERIVED_FILE_DIR)/Pods-whatFuckingShitiOSApp-checkManifestLockResult.txt",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
+			showEnvVarsInLog = 0;
+		};
+/* End PBXShellScriptBuildPhase section */
+
 /* Begin PBXSourcesBuildPhase section */
 		BCCA96CC23EEF63D00C8D9F6 /* Sources */ = {
 			isa = PBXSourcesBuildPhase;
@@ -174,8 +246,9 @@
 				BCE8B89023F2E1580058F258 /* GTDetailViewController.m in Sources */,
 				BCA33FAC23FEC0DE009BC6A1 /* GTDeleteCellView.m in Sources */,
 				BCE8B88D23F16FEB0058F258 /* GTNormalTableViewCell.m in Sources */,
-				BCCA96DB23EEF63D00C8D9F6 /* ViewController.m in Sources */,
+				BCCA96DB23EEF63D00C8D9F6 /* GTNewsViewController.m in Sources */,
 				BCCA973823F02AE200C8D9F6 /* GTPicViewController.m in Sources */,
+				BCA33FB024001768009BC6A1 /* GTListLoader.m in Sources */,
 				BCE8B88A23F119DD0058F258 /* GtRecommendViewController.m in Sources */,
 				BCCA96D523EEF63D00C8D9F6 /* AppDelegate.m in Sources */,
 				BCCA96E623EEF63F00C8D9F6 /* main.m in Sources */,
@@ -317,6 +390,7 @@
 		};
 		BCCA96EA23EEF63F00C8D9F6 /* Debug */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = 94E8FB57747C7C125E19D33C /* Pods-whatFuckingShitiOSApp.debug.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_STYLE = Automatic;
@@ -334,6 +408,7 @@
 		};
 		BCCA96EB23EEF63F00C8D9F6 /* Release */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = 7DD49A9A78A1431EDA842C4F /* Pods-whatFuckingShitiOSApp.release.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_STYLE = Automatic;
