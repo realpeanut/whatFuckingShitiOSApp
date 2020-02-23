@@ -8,7 +8,7 @@
 
 #import "GTListLoader.h"
 #import <AFNetworking.h>
-
+#import "GTListItem.h"
 @implementation GTListLoader
 
 
@@ -18,10 +18,19 @@
     //NSURL *listURL = [NSURL URLWithString:url];
     
     
-    [[AFHTTPSessionManager manager] GET:@"http://zjd-test-zbapi.vdyoo.cn/api/admin/live/detail?id=14" parameters:nil progress:^(NSProgress * _Nonnull downloadProgress) {
+    [[AFHTTPSessionManager manager] GET:@"http://zjd-test-zbapi.vdyoo.cn/api/admin/live/list" parameters:nil progress:^(NSProgress * _Nonnull downloadProgress) {
         
     } success:^(NSURLSessionDataTask * _Nonnull task, id  _Nullable responseObject) {
+        
+        //NSError *jsonError;
+        id jsonObj = responseObject;
+        NSArray *dataArray = [((NSDictionary *)[((NSDictionary *)jsonObj) objectForKey:@"data"]) objectForKey:@"data"];
+        for (NSDictionary *info in dataArray) {
+            GTListItem *list = [[GTListItem alloc] init];
+            [list configWithDictionary:info];
+        }
         NSLog(@"success");
+        
     } failure:^(NSURLSessionDataTask * _Nullable task, NSError * _Nonnull error) {
         NSLog(@"failure");
     }];

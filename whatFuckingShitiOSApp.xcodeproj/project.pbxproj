@@ -10,6 +10,7 @@
 		4FF8A0E3E69220990B381DA3 /* libPods-whatFuckingShitiOSApp.a in Frameworks */ = {isa = PBXBuildFile; fileRef = CBECE472AFADC6798B1EE09F /* libPods-whatFuckingShitiOSApp.a */; };
 		BCA33FAC23FEC0DE009BC6A1 /* GTDeleteCellView.m in Sources */ = {isa = PBXBuildFile; fileRef = BCA33FAB23FEC0DE009BC6A1 /* GTDeleteCellView.m */; };
 		BCA33FB024001768009BC6A1 /* GTListLoader.m in Sources */ = {isa = PBXBuildFile; fileRef = BCA33FAF24001768009BC6A1 /* GTListLoader.m */; };
+		BCA4334C2402D40900F04F8F /* GTListItem.m in Sources */ = {isa = PBXBuildFile; fileRef = BCA4334B2402D40900F04F8F /* GTListItem.m */; };
 		BCCA96D523EEF63D00C8D9F6 /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = BCCA96D423EEF63D00C8D9F6 /* AppDelegate.m */; };
 		BCCA96D823EEF63D00C8D9F6 /* SceneDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = BCCA96D723EEF63D00C8D9F6 /* SceneDelegate.m */; };
 		BCCA96DB23EEF63D00C8D9F6 /* GTNewsViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = BCCA96DA23EEF63D00C8D9F6 /* GTNewsViewController.m */; };
@@ -30,6 +31,8 @@
 		BCA33FAB23FEC0DE009BC6A1 /* GTDeleteCellView.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = GTDeleteCellView.m; sourceTree = "<group>"; };
 		BCA33FAE24001768009BC6A1 /* GTListLoader.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = GTListLoader.h; sourceTree = "<group>"; };
 		BCA33FAF24001768009BC6A1 /* GTListLoader.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = GTListLoader.m; sourceTree = "<group>"; };
+		BCA4334A2402D40900F04F8F /* GTListItem.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = GTListItem.h; sourceTree = "<group>"; };
+		BCA4334B2402D40900F04F8F /* GTListItem.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = GTListItem.m; sourceTree = "<group>"; };
 		BCCA96D023EEF63D00C8D9F6 /* whatFuckingShitiOSApp.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = whatFuckingShitiOSApp.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		BCCA96D323EEF63D00C8D9F6 /* AppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AppDelegate.h; sourceTree = "<group>"; };
 		BCCA96D423EEF63D00C8D9F6 /* AppDelegate.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = AppDelegate.m; sourceTree = "<group>"; };
@@ -71,7 +74,6 @@
 				94E8FB57747C7C125E19D33C /* Pods-whatFuckingShitiOSApp.debug.xcconfig */,
 				7DD49A9A78A1431EDA842C4F /* Pods-whatFuckingShitiOSApp.release.xcconfig */,
 			);
-			name = Pods;
 			path = Pods;
 			sourceTree = "<group>";
 		};
@@ -86,25 +88,52 @@
 		BCA33FAD24001341009BC6A1 /* NewsController */ = {
 			isa = PBXGroup;
 			children = (
-				BCCA96D923EEF63D00C8D9F6 /* GTNewsViewController.h */,
-				BCCA96DA23EEF63D00C8D9F6 /* GTNewsViewController.m */,
-				BCA33FAA23FEC0DE009BC6A1 /* GTDeleteCellView.h */,
-				BCE8B88B23F16FEB0058F258 /* GTNormalTableViewCell.h */,
-				BCE8B88C23F16FEB0058F258 /* GTNormalTableViewCell.m */,
-				BCA33FAB23FEC0DE009BC6A1 /* GTDeleteCellView.m */,
-				BCE8B88E23F2E1580058F258 /* GTDetailViewController.h */,
-				BCE8B88F23F2E1580058F258 /* GTDetailViewController.m */,
+				BCA433492402D3BB00F04F8F /* detail */,
+				BCA433482402D38800F04F8F /* Controller */,
+				BCA433462402D32900F04F8F /* View */,
+				BCA433452402D2EB00F04F8F /* Model */,
 			);
 			path = NewsController;
 			sourceTree = "<group>";
 		};
-		BCA33FB124001787009BC6A1 /* Loader */ = {
+		BCA433452402D2EB00F04F8F /* Model */ = {
 			isa = PBXGroup;
 			children = (
 				BCA33FAE24001768009BC6A1 /* GTListLoader.h */,
 				BCA33FAF24001768009BC6A1 /* GTListLoader.m */,
+				BCA4334A2402D40900F04F8F /* GTListItem.h */,
+				BCA4334B2402D40900F04F8F /* GTListItem.m */,
 			);
-			path = Loader;
+			path = Model;
+			sourceTree = "<group>";
+		};
+		BCA433462402D32900F04F8F /* View */ = {
+			isa = PBXGroup;
+			children = (
+				BCA33FAA23FEC0DE009BC6A1 /* GTDeleteCellView.h */,
+				BCE8B88B23F16FEB0058F258 /* GTNormalTableViewCell.h */,
+				BCE8B88C23F16FEB0058F258 /* GTNormalTableViewCell.m */,
+				BCA33FAB23FEC0DE009BC6A1 /* GTDeleteCellView.m */,
+			);
+			path = View;
+			sourceTree = "<group>";
+		};
+		BCA433482402D38800F04F8F /* Controller */ = {
+			isa = PBXGroup;
+			children = (
+				BCCA96D923EEF63D00C8D9F6 /* GTNewsViewController.h */,
+				BCCA96DA23EEF63D00C8D9F6 /* GTNewsViewController.m */,
+			);
+			path = Controller;
+			sourceTree = "<group>";
+		};
+		BCA433492402D3BB00F04F8F /* detail */ = {
+			isa = PBXGroup;
+			children = (
+				BCE8B88E23F2E1580058F258 /* GTDetailViewController.h */,
+				BCE8B88F23F2E1580058F258 /* GTDetailViewController.m */,
+			);
+			path = detail;
 			sourceTree = "<group>";
 		};
 		BCCA96C723EEF63D00C8D9F6 = {
@@ -128,7 +157,6 @@
 		BCCA96D223EEF63D00C8D9F6 /* whatFuckingShitiOSApp */ = {
 			isa = PBXGroup;
 			children = (
-				BCA33FB124001787009BC6A1 /* Loader */,
 				BCA33FAD24001341009BC6A1 /* NewsController */,
 				BCCA96D323EEF63D00C8D9F6 /* AppDelegate.h */,
 				BCCA96D423EEF63D00C8D9F6 /* AppDelegate.m */,
@@ -249,6 +277,7 @@
 				BCCA96DB23EEF63D00C8D9F6 /* GTNewsViewController.m in Sources */,
 				BCCA973823F02AE200C8D9F6 /* GTPicViewController.m in Sources */,
 				BCA33FB024001768009BC6A1 /* GTListLoader.m in Sources */,
+				BCA4334C2402D40900F04F8F /* GTListItem.m in Sources */,
 				BCE8B88A23F119DD0058F258 /* GtRecommendViewController.m in Sources */,
 				BCCA96D523EEF63D00C8D9F6 /* AppDelegate.m in Sources */,
 				BCCA96E623EEF63F00C8D9F6 /* main.m in Sources */,

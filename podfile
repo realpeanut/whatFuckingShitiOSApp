@@ -1,0 +1,4 @@
+source 'https://mirrors.tuna.tsinghua.edu.cn/git/CocoaPods/Specs.git'
+target 'whatFuckingShitiOSApp' do
+	pod 'AFNetworking'
+end
