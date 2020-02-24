@@ -19,6 +19,7 @@ NS_ASSUME_NONNULL_BEGIN
 @property(nonatomic,copy,readwrite) NSString *source;
 @property(nonatomic,copy,readwrite) NSString *comment;
 @property(nonatomic,copy,readwrite) NSString *date;
+@property(nonatomic,copy,readwrite) NSString *url;
 
 -(void)configWithDictionary:(NSDictionary *)dictionary;
 

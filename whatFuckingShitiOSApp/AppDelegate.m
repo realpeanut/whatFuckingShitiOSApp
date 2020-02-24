@@ -38,7 +38,7 @@
     GtRecommendViewController *controller4 = [[GtRecommendViewController alloc] init];
     
 
-    [tabbarController setViewControllers:@[controller1, controller2, gtpvc, controller4]];
+    [tabbarController setViewControllers:@[controller2,controller1, gtpvc, controller4]];
     tabbarController.delegate = self;
         
     UINavigationController * uiNavigationController = [[UINavigationController alloc] initWithRootViewController:tabbarController];

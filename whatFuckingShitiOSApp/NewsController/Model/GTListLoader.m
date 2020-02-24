@@ -9,39 +9,52 @@
 #import "GTListLoader.h"
 #import <AFNetworking.h>
 #import "GTListItem.h"
+
+
 @implementation GTListLoader
 
 
--(void)loadListData
-{
-    //NSString * url = @"http://zjd-test-zbapi.vdyoo.cn/api/admin/live/detail?id=14";
-    //NSURL *listURL = [NSURL URLWithString:url];
-    
-    
-    [[AFHTTPSessionManager manager] GET:@"http://zjd-test-zbapi.vdyoo.cn/api/admin/live/list" parameters:nil progress:^(NSProgress * _Nonnull downloadProgress) {
+-(void)loadListDataWithFinishBlock:(GTListLoaderFinishBlock)finishBlock{
+//    NSArray<GTListItem *> *listdata = [self _readDataFromLocal];
+//    if (listdata) {
+//        finishBlock(YES, listdata);
+//    }
+    NSString *urlString = @"http://zjd-test-zbapi.vdyoo.cn/api/admin/live/list";
+    NSURL *listURL = [NSURL URLWithString:urlString];
+
+//    __unused NSURLRequest *listRequest = [NSURLRequest requestWithURL:listURL];
+
+    NSURLSession *session = [NSURLSession sharedSession];
+
+    //__weak typeof(self) weakSelf = self;
+    NSURLSessionDataTask *dataTask = [session dataTaskWithURL:listURL completionHandler:^(NSData *_Nullable data, NSURLResponse *_Nullable response, NSError *_Nullable error) {
         
-    } success:^(NSURLSessionDataTask * _Nonnull task, id  _Nullable responseObject) {
+        //__strong typeof(weakSelf) strongSelf = weakSelf;
         
-        //NSError *jsonError;
-        id jsonObj = responseObject;
-        NSArray *dataArray = [((NSDictionary *)[((NSDictionary *)jsonObj) objectForKey:@"data"]) objectForKey:@"data"];
+        NSError *jsonError;
+        id jsonObj = [NSJSONSerialization JSONObjectWithData:data options:0 error:&jsonError];
+        
+        NSArray *dataArray =  [((NSDictionary *)[((NSDictionary *)jsonObj) objectForKey:@"data"]) objectForKey:@"data"];
+        NSMutableArray *listItemArray = @[].mutableCopy;
+        
+        
         for (NSDictionary *info in dataArray) {
-            GTListItem *list = [[GTListItem alloc] init];
-            [list configWithDictionary:info];
+            GTListItem *listItem = [[GTListItem alloc] init];
+            [listItem configWithDictionary:info];
+            [listItemArray addObject:listItem];
         }
-        NSLog(@"success");
         
-    } failure:^(NSURLSessionDataTask * _Nullable task, NSError * _Nonnull error) {
-        NSLog(@"failure");
+        //[strongSelf _archiveListDataWithArray:listItemArray.copy];
+
+        dispatch_async(dispatch_get_main_queue(), ^{
+            if (finishBlock) {
+                finishBlock(error == nil, listItemArray.copy);
+            }
+        });
     }];
-    //NSURLRequest *listRequest = [NSURLRequest requestWithURL:listURL];
-//    NSURLSession * session = [NSURLSession sharedSession];
-//    NSURLSessionDataTask *dataTask = [session dataTaskWithURL:listURL completionHandler:^(NSData * _Nullable data, NSURLResponse * _Nullable response, NSError * _Nullable error) {
-//        NSLog(@"sss");
-//    }];
-//
-//    [dataTask resume];
-    NSLog(@"执行resume");
+
+    [dataTask resume];
+    
 }
 
 

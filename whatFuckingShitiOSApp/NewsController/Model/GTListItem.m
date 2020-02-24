@@ -8,6 +8,9 @@
 
 #import "GTListItem.h"
 
+
+
+
 @implementation GTListItem
 
 
@@ -16,12 +19,9 @@
 -(void)configWithDictionary:(NSDictionary *)dictionary
 {
     self.titile  = [dictionary objectForKey:@"course_name"];
-    NSLog(@"%@", self.titile);
     self.source  = [dictionary objectForKey:@"org_name"];
-    NSLog(@"%@", self.source);
-    self.comment = [dictionary objectForKey:@"course_teacher"];
-    NSLog(@"%@", self.comment);
+    self.comment = [dictionary objectForKey:@"org_name"];
     self.date    = [dictionary objectForKey:@"created_at"];
-    NSLog(@"%@", self.date);
+    self.url     = [dictionary objectForKey:@"id"];
 }
 @end

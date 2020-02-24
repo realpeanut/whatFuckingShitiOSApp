@@ -8,6 +8,7 @@
 
 #import <UIKit/UIKit.h>
 
+@class GTListItem;
 NS_ASSUME_NONNULL_BEGIN
 
 @protocol GTNormalTableViewCellDelegate <NSObject>//定义协议
@@ -15,10 +16,14 @@ NS_ASSUME_NONNULL_BEGIN
 -(void)tableViewCell:(UITableViewCell *)tableViewCell clickDeleteButton:(UIButton *)deleteButton;
 
 @end
+
+
+
+//新闻列表
 @interface GTNormalTableViewCell : UITableViewCell
 
-@property(nonatomic,weak,readwrite)id <GTNormalTableViewCellDelegate> delegate;
--(void)layoutTableViewCell;
+@property(nonatomic,weak,readwrite) id<GTNormalTableViewCellDelegate> delegate;
+-(void)layoutTableViewCellWithItem:(GTListItem *)item;
 
 @end
 

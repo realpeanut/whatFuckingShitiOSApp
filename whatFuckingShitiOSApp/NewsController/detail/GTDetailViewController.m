@@ -12,19 +12,27 @@
 @interface GTDetailViewController ()<WKNavigationDelegate>
 @property(nonatomic,strong,readwrite) WKWebView *wkWebView;
 @property(nonatomic,strong,readwrite) UIProgressView * uiprogressView;
+@property(nonatomic,strong,readwrite) NSString * detailUrl;
 @end
 
 @implementation GTDetailViewController
 
+-(instancetype)initWithStringUrl:(NSString *)url{
+    self = [super init];
+    if (self) {
+        _detailUrl = url;
+    }
+    return self;
+}
+
 - (void)viewDidLoad {
     [super viewDidLoad];
-    // Do any additional setup after loading the view.
     [self.view addSubview:({
         self.wkWebView = [[WKWebView alloc] initWithFrame:CGRectMake(0, 88, self.view.frame.size.width, self.view.frame.size.height)];
         self.wkWebView.navigationDelegate = self;
         self.wkWebView;
     })];
-    [self.wkWebView loadRequest:[NSURLRequest requestWithURL:[NSURL URLWithString:@"https://www.baidu.com"]]];
+    [self.wkWebView loadRequest:[NSURLRequest requestWithURL:[NSURL URLWithString:_detailUrl]]];
     [self.wkWebView addSubview:({
         self.uiprogressView = [[UIProgressView alloc] initWithFrame:CGRectMake(0, 88, self.view.frame.size.width, 20)];
         self.uiprogressView;
@@ -55,14 +63,5 @@
 {
     [self.wkWebView removeObserver:self forKeyPath:@"estimatedProgress"];
 }
-/*
-#pragma mark - Navigation
-
-// In a storyboard-based application, you will often want to do a little preparation before navigation
-- (void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender {
-    // Get the new view controller using [segue destinationViewController].
-    // Pass the selected object to the new view controller.
-}
-*/
 
 @end

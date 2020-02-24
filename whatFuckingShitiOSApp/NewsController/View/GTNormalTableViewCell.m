@@ -7,6 +7,7 @@
 //
 
 #import "GTNormalTableViewCell.h"
+#import "GTListItem.h"
 
 @interface GTNormalTableViewCell()
 
@@ -29,15 +30,17 @@
         
         [self.contentView addSubview:({
             self.titleLabel = [[UILabel alloc] initWithFrame:CGRectMake(20, 50, 300, 20)];
-            self.titleLabel.backgroundColor = [UIColor whiteColor];
+            //self.titleLabel.backgroundColor = [UIColor whiteColor];
             self.titleLabel.font = [UIFont systemFontOfSize:16];
             self.titleLabel.textColor = [UIColor blackColor];
+            self.titleLabel.numberOfLines = 2;//两行截断
+            self.titleLabel.lineBreakMode = NSLineBreakByTruncatingTail;//截断末尾显示 。。。
             self.titleLabel;
         })];
         
         [self.contentView addSubview:({
             self.sourceLabel = [[UILabel alloc] initWithFrame:CGRectMake(20, 80, 20, 30)];
-            self.sourceLabel.backgroundColor = [UIColor whiteColor];
+            //self.sourceLabel.backgroundColor = [UIColor whiteColor];
             self.sourceLabel.font = [UIFont systemFontOfSize:12];
             self.sourceLabel.textColor = [UIColor blackColor];
             self.sourceLabel;
@@ -45,7 +48,7 @@
         
         [self.contentView addSubview:({
             self.commentLabel = [[UILabel alloc] initWithFrame:CGRectMake(100, 80, 50, 20)];
-            self.commentLabel.backgroundColor = [UIColor whiteColor];
+            //self.commentLabel.backgroundColor = [UIColor whiteColor];
             self.commentLabel.font = [UIFont systemFontOfSize:12];
             self.commentLabel.textColor = [UIColor blackColor];
             self.commentLabel;
@@ -53,7 +56,7 @@
         
         [self.contentView addSubview:({
             self.timeLabel = [[UILabel alloc] initWithFrame:CGRectMake(150, 80, 50, 20)];
-            self.timeLabel.backgroundColor = [UIColor whiteColor];
+            //self.timeLabel.backgroundColor = [UIColor whiteColor];
             self.timeLabel.font = [UIFont systemFontOfSize:12];
             self.timeLabel.textColor = [UIColor blackColor];
             self.timeLabel;
@@ -62,7 +65,7 @@
         //图片
         [self.contentView addSubview:({
             self.rightImageView = [[UIImageView alloc] initWithFrame:CGRectMake(300, 15, 70, 70)];
-            self.rightImageView.backgroundColor = [UIColor redColor];
+            //self.rightImageView.backgroundColor = [UIColor redColor];
             self.rightImageView.contentMode = UIViewContentModeScaleAspectFit;
             self.rightImageView;
         })];
@@ -98,18 +101,19 @@
     }
 }
 
--(void)layoutTableViewCell
+-(void)layoutTableViewCellWithItem:(GTListItem *)item
 {
-    self.titleLabel.text = @"标题";
+    self.titleLabel.text = item.titile;
+    //NSLog(@"%@99999",self.titleLabel.text);
     
-    self.sourceLabel.text = @"来源";
+    self.sourceLabel.text = item.source;
     [self.sourceLabel sizeToFit];
     
-    self.commentLabel.text = @"评论";
+    self.commentLabel.text = item.comment;
     [self.commentLabel sizeToFit];
     self.commentLabel.frame = CGRectMake(self.sourceLabel.frame.origin.x + self.sourceLabel.frame.size.width + 15, self.commentLabel.frame.origin.y, self.commentLabel.frame.size.width, self.commentLabel.frame.size.height);
     
-    self.timeLabel.text = @"2020-02-10";
+    self.timeLabel.text = item.date;
     [self.timeLabel sizeToFit];
     
     self.timeLabel.frame = CGRectMake(self.commentLabel.frame.origin.x + self.commentLabel.frame.size.width + 15, self.commentLabel.frame.origin.y, self.timeLabel.frame.size.width, self.timeLabel.frame.size.height);

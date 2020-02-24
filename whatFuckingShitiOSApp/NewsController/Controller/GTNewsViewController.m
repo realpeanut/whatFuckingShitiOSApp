@@ -14,11 +14,21 @@
 
 @interface GTNewsViewController ()<UITableViewDataSource,UITableViewDelegate,GTNormalTableViewCellDelegate>//实现UITableViewDataSource协议
 @property(nonatomic,strong,readwrite)GTListLoader *listLoader;
+@property(nonatomic,strong,readwrite)NSArray *dataArray;
+@property(nonatomic,strong,readwrite)UITableView *tableView;
 @end
 
 @implementation GTNewsViewController
 
 #pragma mark - lefe cycle
+
+-(instancetype)init {
+    self = [super init];
+    if (self) {
+        
+    }
+    return self;
+}
 - (void)viewDidLoad {
     [super viewDidLoad];
 //    [self.view addSubview:({
@@ -45,19 +55,25 @@
 //    view1.frame = CGRectMake(150, 150, 100, 100);
 //    [self.view addSubview:view1];
     
-    UITableView *utv = [[UITableView alloc] initWithFrame:self.view.bounds];
-    utv.dataSource = self;
-    utv.delegate = self;
-    [self.view addSubview:utv];
+    _tableView = [[UITableView alloc] initWithFrame:self.view.bounds];
+    _tableView.dataSource = self;
+    _tableView.delegate = self;
+    [self.view addSubview:_tableView];
+    
     self.listLoader = [[GTListLoader alloc] init];
-    [self.listLoader loadListData];
+    __weak typeof(self)wself = self;
+    [self.listLoader loadListDataWithFinishBlock:^(BOOL success, NSArray<GTListItem *> * _Nonnull dataArray) {
+        __strong typeof(wself) strongSelf = wself;
+        strongSelf.dataArray = dataArray;
+        [strongSelf.tableView reloadData];
+    }];
 }
 
 #pragma mark - UITableViewDelegate
 
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section
 {
-    return 30;
+    return _dataArray.count;
 }
 
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath
@@ -67,7 +83,7 @@
         cell = [[GTNormalTableViewCell alloc] initWithStyle:UITableViewCellStyleDefault reuseIdentifier:@"id"];
         cell.delegate = self;
     }
-    [cell layoutTableViewCell];
+    [cell layoutTableViewCellWithItem:[self.dataArray objectAtIndex:indexPath.row]];
     return cell;
 }
 
@@ -78,7 +94,11 @@
 
 - (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath
 {
-    GTDetailViewController * uvc = [[GTDetailViewController alloc] init];
+    
+    //GTListItem * item = [self.dataArray objectAtIndex:indexPath.row];
+    NSString *url = @"http://test-zbapi.vdyoo.cn/api/admin/live/detail?id=69";
+
+    GTDetailViewController * uvc = [[GTDetailViewController alloc] initWithStringUrl:url];
     uvc.title = [NSString stringWithFormat:@"上一页ID=%@",@(indexPath.row)];
     uvc.view.backgroundColor = [UIColor blueColor];
     [self.navigationController pushViewController:uvc animated:YES];
@@ -93,15 +113,11 @@
     [self.navigationController pushViewController:uiView animated:YES];
 }
 
-
 - (void)tableViewCell:(nonnull UITableViewCell *)tableViewCell clickDeleteButton:(nonnull UIButton *)deleteButton {
     
     GTDeleteCellView *deleteView = [[GTDeleteCellView alloc] initWithFrame:self.view.bounds];
     [deleteView showDeleteViewFromPoint:CGPointMake(0, 0)];
     
 }
-
-
-
 
 @end
