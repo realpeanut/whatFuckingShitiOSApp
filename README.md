@@ -1,4 +1,4 @@
-# iOS APP初体验
+# iOS APP version:12.2
 ## WebView
 > #import <WebKit/WebKit.h>
 # CocoaPods
@@ -61,3 +61,17 @@ source 'https://mirrors.tuna.tsinghua.edu.cn/git/CocoaPods/Specs.git'
 
 - NSFileHandle
 > 文件读取、修改
+
+```
+    //在文件末尾追加内容  filePeanut 是上文中未被删除的文件地址
+    NSFileHandle *fileHandle = [NSFileHandle fileHandleForUpdatingAtPath:filePeanut];
+    //文件指针指向末尾
+    [fileHandle seekToEndOfFile];
+    NSString *addContent = @"这是追加的内容";
+    //设置utf8编码并进行内容追加写入
+    [fileHandle writeData:[addContent dataUsingEncoding:NSUTF8StringEncoding]];
+    //刷新文件
+    [fileHandle synchronizeFile];
+    //关闭文件句柄
+    [fileHandle closeFile];
+```

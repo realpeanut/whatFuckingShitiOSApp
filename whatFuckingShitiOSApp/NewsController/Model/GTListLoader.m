@@ -70,11 +70,21 @@
     //判断文件是否存在
     BOOL fileExist= [fileManager fileExistsAtPath:filePeanut];
     
-    //删除文件
-    if (fileExist) {
-        [fileManager removeItemAtPath:filePeanut error:nil];
-    }
-    NSLog(@"获取目录");
+//    //删除文件
+//    if (fileExist) {
+//        [fileManager removeItemAtPath:filePeanut error:nil];
+//    }
+    //在文件末尾追加内容
+    NSFileHandle *fileHandle = [NSFileHandle fileHandleForUpdatingAtPath:filePeanut];
+    //文件指针指向末尾
+    [fileHandle seekToEndOfFile];
+    NSString *addContent = @"这是追加的内容";
+    //设置utf8编码并进行内容追加写入
+    [fileHandle writeData:[addContent dataUsingEncoding:NSUTF8StringEncoding]];
+    //刷新文件
+    [fileHandle synchronizeFile];
+    //关闭文件句柄
+    [fileHandle closeFile];
 }
 
 
