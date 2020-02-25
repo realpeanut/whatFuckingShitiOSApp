@@ -8,11 +8,7 @@
 
 #import "GTListItem.h"
 
-
-
-
 @implementation GTListItem
-
 
 //YYModel  MJExtension   NSData - > json -> model
 
