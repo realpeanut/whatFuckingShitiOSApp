@@ -75,7 +75,16 @@ source 'https://mirrors.tuna.tsinghua.edu.cn/git/CocoaPods/Specs.git'
     //关闭文件句柄
     [fileHandle closeFile];
 ```
+## NSDictionary字典
+
+```
+// dictionary  id 值为int类型需注意  调用 intValue方法
+self.detail  = [[dictionary objectForKey:@"id"] intValue];
+```
+
+
 ## 序列化存储
+
 - NSCoder
 
 ```
@@ -87,6 +96,8 @@ source 'https://mirrors.tuna.tsinghua.edu.cn/git/CocoaPods/Specs.git'
 {
     //序列化title属性指定key 为title
     [coder encodeObject:self.titile forKey:@"title"];
+    //注意  encodeDouble
+    [coder encodeDouble:self.detail forKey:@"id"];
 }
 
 - (nullable instancetype)initWithCoder:(NSCoder *)coder
@@ -95,6 +106,8 @@ source 'https://mirrors.tuna.tsinghua.edu.cn/git/CocoaPods/Specs.git'
     if (self) {
         //通过指定key反序列化对象
         self.titile  = [coder decodeObjectForKey:@"titile"];
+        //反序列化long、double型
+        self.detail  = [coder decodeDoubleForKey:@"id"];
     }
     return self;
 }
@@ -115,3 +128,36 @@ NSData *content = [NSKeyedArchiver archivedDataWithRootObject:array requiringSec
 id unarchivObj  = [NSKeyedUnarchiver unarchivedObjectOfClasses:[NSSet setWithObjects:[NSArray class],[GTListItem class], nil] fromData:readList error:nil];
 ```
 
+## k-v形式存储
+- NSUserDefaults
+```
+//NSUserDefaults 是一个单例
+NSUserDefaults *ndf = [NSUserDefaults standardUserDefaults];
+//字符串存入    
+[ndf setObject:@"存取内容" forKey:@"ourKey"];
+//字符串取出
+NSString * contents = [ndf stringForKey:@"ourKey"];
+NSLog(@"%@",contents);
+//output 存取内容
+```
+- LevelDB/MMKV/Realm
+
+## 关系型数据库
+- SQLite/FMDB/WCDB/CoreData
+
+
+
+
+
+
+
+
+
+
+---
+### Tips
+
+```
+//整型转为字符串
+NSString *B = [numberFormatter stringFromNumber:[NSNumber numberWithLong:items.detail]];
+```

@@ -11,6 +11,7 @@
 #import "GTDetailViewController.h"
 #import "GTDeleteCellView.h"
 #import "GTListLoader.h"
+#import "GTListItem.h"
 
 @interface GTNewsViewController ()<UITableViewDataSource,UITableViewDelegate,GTNormalTableViewCellDelegate>//实现UITableViewDataSource协议
 @property(nonatomic,strong,readwrite)GTListLoader *listLoader;
@@ -95,10 +96,17 @@
 - (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath
 {
     
-    //GTListItem * item = [self.dataArray objectAtIndex:indexPath.row];
-    NSString *url = @"http://test-zbapi.vdyoo.cn/api/admin/live/detail?id=69";
-
-    GTDetailViewController * uvc = [[GTDetailViewController alloc] initWithStringUrl:url];
+    GTListItem * items = [self.dataArray objectAtIndex:indexPath.row];
+    //NSLog(@"%d",items.date);
+    
+    
+    //items.
+    NSNumberFormatter* numberFormatter = [[NSNumberFormatter alloc] init];
+    //整型转为字符串
+    NSString *B = [numberFormatter stringFromNumber:[NSNumber numberWithLong:items.detail]];
+    
+    NSString *url = @"http://learn.laravel.com/api/live/detail?id=";
+    GTDetailViewController * uvc = [[GTDetailViewController alloc] initWithStringUrl:[url stringByAppendingString:B]];
     uvc.title = [NSString stringWithFormat:@"上一页ID=%@",@(indexPath.row)];
     uvc.view.backgroundColor = [UIColor blueColor];
     [self.navigationController pushViewController:uvc animated:YES];

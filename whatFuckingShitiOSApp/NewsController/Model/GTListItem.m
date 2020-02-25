@@ -18,7 +18,8 @@
     [coder encodeObject:self.source forKey:@"source"];
     [coder encodeObject:self.comment forKey:@"comment"];
     [coder encodeObject:self.date forKey:@"date"];
-    [coder encodeObject:self.url forKey:@"url"];
+    //注意事项
+    [coder encodeDouble:self.detail forKey:@"id"];
 }
 
 - (nullable instancetype)initWithCoder:(NSCoder *)coder
@@ -29,7 +30,7 @@
         self.source  = [coder decodeObjectForKey:@"source"];
         self.comment = [coder decodeObjectForKey:@"comment"];
         self.date    = [coder decodeObjectForKey:@"date"];
-        self.url     = [coder decodeObjectForKey:@"url"];
+        self.detail  = [coder decodeDoubleForKey:@"id"];
     }
     return self;
 }
@@ -45,6 +46,6 @@
     self.source  = [dictionary objectForKey:@"org_name"];
     self.comment = [dictionary objectForKey:@"org_name"];
     self.date    = [dictionary objectForKey:@"created_at"];
-    self.url     = [dictionary objectForKey:@"id"];
+    self.detail  = [[dictionary objectForKey:@"id"] intValue];
 }
 @end

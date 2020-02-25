@@ -16,7 +16,13 @@
 
 -(void)loadListDataWithFinishBlock:(GTListLoaderFinishBlock)finishBlock{
 
-    NSString *urlString = @"http://zjd-test-zbapi.vdyoo.cn/api/admin/live/list";
+//    NSArray<GTListItem*>* listData = [self loadDataFromLocal];
+//    if (listData) {
+//        finishBlock(YES, listData);
+//        NSLog(@"从本地取数据");
+//    }
+    
+    NSString *urlString = @"http://learn.laravel.com/api/live/list";
     NSURL *listURL = [NSURL URLWithString:urlString];
     NSURLSession *session = [NSURLSession sharedSession];
     __weak typeof(self) weakSelf= self;
@@ -48,6 +54,22 @@
     
 }
 
+-(NSArray<GTListItem*>*)loadDataFromLocal
+{
+    NSArray  *pathArray = NSSearchPathForDirectoriesInDomains(NSCachesDirectory, NSUserDomainMask, YES);
+    NSString *cachePath = [pathArray firstObject];
+    NSString *dataPath = [cachePath stringByAppendingPathComponent:@"CachePeanut/filePeanut"];
+    //创建fileManager
+    NSFileManager *fileManager = [NSFileManager defaultManager];
+    NSData *readList = [fileManager contentsAtPath:dataPath];
+    //反序列化
+    id unarchivObj  = [NSKeyedUnarchiver unarchivedObjectOfClasses:[NSSet setWithObjects:[NSArray class],[GTListItem class], nil] fromData:readList error:nil];
+    if ([unarchivObj isKindOfClass:[NSArray class]] && [unarchivObj count] > 0) {
+        return (NSArray<GTListItem*>*)unarchivObj;
+    }
+    return Nil;
+}
+
 -(void)_archiveListDataWithArray:(NSArray<GTListItem*> *)array
 {
     //获取缓存文件目录
@@ -72,9 +94,15 @@
     [fileManager createFileAtPath:filePeanut contents:content attributes:nil];
     
     //读取文件内容
-    NSData *readList = [fileManager contentsAtPath:filePeanut];
+    //NSData *readList = [fileManager contentsAtPath:filePeanut];
     //反序列化
     //id unarchivObj  = [NSKeyedUnarchiver unarchivedObjectOfClasses:[NSSet setWithObjects:[NSArray class],[GTListItem class], nil] fromData:readList error:nil];
+    
+    //NSUserDefaults *ndf = [NSUserDefaults standardUserDefaults];
+    
+    //[ndf setObject:@"存取内容" forKey:@"ourKey"];
+    //NSString * contents = [ndf stringForKey:@"ourKey"];
+    //NSLog(@"%@",contents);
     //判断文件是否存在
 //    BOOL fileExist= [fileManager fileExistsAtPath:filePeanut];
     
