@@ -12,6 +12,33 @@
 
 //YYModel  MJExtension   NSData - > json -> model
 
+- (void)encodeWithCoder:(NSCoder *)coder
+{
+    [coder encodeObject:self.titile forKey:@"title"];
+    [coder encodeObject:self.source forKey:@"source"];
+    [coder encodeObject:self.comment forKey:@"comment"];
+    [coder encodeObject:self.date forKey:@"date"];
+    [coder encodeObject:self.url forKey:@"url"];
+}
+
+- (nullable instancetype)initWithCoder:(NSCoder *)coder
+{
+    self = [super init];
+    if (self) {
+        self.titile  = [coder decodeObjectForKey:@"titile"];
+        self.source  = [coder decodeObjectForKey:@"source"];
+        self.comment = [coder decodeObjectForKey:@"comment"];
+        self.date    = [coder decodeObjectForKey:@"date"];
+        self.url     = [coder decodeObjectForKey:@"url"];
+    }
+    return self;
+}
+
++ (BOOL) supportsSecureCoding
+{
+    return YES;
+}
+
 -(void)configWithDictionary:(NSDictionary *)dictionary
 {
     self.titile  = [dictionary objectForKey:@"course_name"];

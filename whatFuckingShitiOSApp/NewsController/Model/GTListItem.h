@@ -13,7 +13,7 @@ NS_ASSUME_NONNULL_BEGIN
 
 
 ///列表机构化数数据
-@interface GTListItem : NSObject
+@interface GTListItem : NSObject <NSSecureCoding>
 
 @property(nonatomic,copy,readwrite) NSString *titile;
 @property(nonatomic,copy,readwrite) NSString *source;

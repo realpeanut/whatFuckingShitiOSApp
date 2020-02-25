@@ -1,4 +1,4 @@
-# iOS APP version:12.2
+## # iOS APP version:12.2
 ## WebView
 > #import <WebKit/WebKit.h>
 # CocoaPods
@@ -75,3 +75,43 @@ source 'https://mirrors.tuna.tsinghua.edu.cn/git/CocoaPods/Specs.git'
     //关闭文件句柄
     [fileHandle closeFile];
 ```
+## 序列化存储
+- NSCoder
+
+```
+//头文件实现NSSecureCoding协议
+@interface someClass <NSSecureCoding>
+
+//实现文件中实现具体方法
+- (void)encodeWithCoder:(NSCoder *)coder
+{
+    //序列化title属性指定key 为title
+    [coder encodeObject:self.titile forKey:@"title"];
+}
+
+- (nullable instancetype)initWithCoder:(NSCoder *)coder
+{
+    self = [super init];
+    if (self) {
+        //通过指定key反序列化对象
+        self.titile  = [coder decodeObjectForKey:@"titile"];
+    }
+    return self;
+}
+
+//确认支持安全协议
++ (BOOL) supportsSecureCoding
+{
+    return YES;
+}
+```
+- NSKeyedArchiver NSKeyedUnarchiver
+
+```
+//序列化
+NSData *content = [NSKeyedArchiver archivedDataWithRootObject:array requiringSecureCoding:YES error:Nil];
+
+//反序列化
+id unarchivObj  = [NSKeyedUnarchiver unarchivedObjectOfClasses:[NSSet setWithObjects:[NSArray class],[GTListItem class], nil] fromData:readList error:nil];
+```
+
