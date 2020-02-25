@@ -103,6 +103,14 @@
 
 -(void)layoutTableViewCellWithItem:(GTListItem *)item
 {
+    NSNumberFormatter* numberFormatter = [[NSNumberFormatter alloc] init];
+    //整型转为字符串
+    NSString *B = [numberFormatter stringFromNumber:[NSNumber numberWithLong:item.detail]];
+    BOOL hasRead = [[NSUserDefaults standardUserDefaults]  boolForKey:B];
+    //改变背景
+    if (hasRead) {
+        self.titleLabel.textColor = [UIColor redColor];
+    }
     self.titleLabel.text = item.titile;
     //NSLog(@"%@99999",self.titleLabel.text);
     

@@ -110,6 +110,7 @@
     uvc.title = [NSString stringWithFormat:@"上一页ID=%@",@(indexPath.row)];
     uvc.view.backgroundColor = [UIColor blueColor];
     [self.navigationController pushViewController:uvc animated:YES];
+    [[NSUserDefaults standardUserDefaults] setBool:YES forKey:B];
 }
 
 -(void)pushController
