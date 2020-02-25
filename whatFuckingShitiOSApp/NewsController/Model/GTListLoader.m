@@ -48,28 +48,31 @@
 
 -(void)_getSandBoxPath
 {
+    //获取缓存文件目录
     NSArray  *pathArray = NSSearchPathForDirectoriesInDomains(NSCachesDirectory, NSUserDomainMask, YES);
     NSString *cachePath = [pathArray firstObject];
+    
     //创建fileManager
     NSFileManager *fileManager = [NSFileManager defaultManager];
-    //创建文件夹
+    
+    //创建CachePeanut文件夹
     NSString *dataPath = [cachePath stringByAppendingPathComponent:@"CachePeanut"];
     NSError *createError;
     [fileManager createDirectoryAtPath:dataPath withIntermediateDirectories:YES attributes:Nil error:&createError];
-    //创建完成
-    //----------------
-    //在文件夹中创建文件list
-    NSString *list = [dataPath stringByAppendingPathComponent:@"list"];
+    
+    //在文件夹中创建文件filePeanut
+    NSString *filePeanut = [dataPath stringByAppendingPathComponent:@"filePeanut"];
     //文件内容
     NSData *content = [@"文件内容" dataUsingEncoding:NSUTF8StringEncoding];
-    [fileManager createFileAtPath:list contents:content attributes:nil];
+    //开始创建文件
+    [fileManager createFileAtPath:filePeanut contents:content attributes:nil];
     
-    //查询文件
-    BOOL fileExist= [fileManager fileExistsAtPath:list];
+    //判断文件是否存在
+    BOOL fileExist= [fileManager fileExistsAtPath:filePeanut];
     
     //删除文件
     if (fileExist) {
-        [fileManager removeItemAtPath:list error:nil];
+        [fileManager removeItemAtPath:filePeanut error:nil];
     }
     NSLog(@"获取目录");
 }
