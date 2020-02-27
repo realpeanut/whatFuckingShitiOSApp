@@ -16,10 +16,9 @@ NS_ASSUME_NONNULL_BEGIN
 @interface GTListItem : NSObject <NSSecureCoding>
 
 @property(nonatomic,copy,readwrite) NSString *titile;
-@property(nonatomic,copy,readwrite) NSString *source;
-@property(nonatomic,copy,readwrite) NSString *comment;
+@property(nonatomic, assign)long views;
 @property(nonatomic,copy,readwrite) NSString *date;
-@property(nonatomic, assign)long detail;
+@property(nonatomic, assign)long articleId;
 
 -(void)configWithDictionary:(NSDictionary *)dictionary;
 

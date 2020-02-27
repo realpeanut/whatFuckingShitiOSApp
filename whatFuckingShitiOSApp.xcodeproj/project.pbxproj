@@ -11,6 +11,7 @@
 		BCA33FAC23FEC0DE009BC6A1 /* GTDeleteCellView.m in Sources */ = {isa = PBXBuildFile; fileRef = BCA33FAB23FEC0DE009BC6A1 /* GTDeleteCellView.m */; };
 		BCA33FB024001768009BC6A1 /* GTListLoader.m in Sources */ = {isa = PBXBuildFile; fileRef = BCA33FAF24001768009BC6A1 /* GTListLoader.m */; };
 		BCA4334C2402D40900F04F8F /* GTListItem.m in Sources */ = {isa = PBXBuildFile; fileRef = BCA4334B2402D40900F04F8F /* GTListItem.m */; };
+		BCB165402407B4F600D8E42C /* GTVedioCoverViewCollecion.m in Sources */ = {isa = PBXBuildFile; fileRef = BCB1653F2407B4F600D8E42C /* GTVedioCoverViewCollecion.m */; };
 		BCCA96D523EEF63D00C8D9F6 /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = BCCA96D423EEF63D00C8D9F6 /* AppDelegate.m */; };
 		BCCA96D823EEF63D00C8D9F6 /* SceneDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = BCCA96D723EEF63D00C8D9F6 /* SceneDelegate.m */; };
 		BCCA96DB23EEF63D00C8D9F6 /* GTNewsViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = BCCA96DA23EEF63D00C8D9F6 /* GTNewsViewController.m */; };
@@ -33,6 +34,8 @@
 		BCA33FAF24001768009BC6A1 /* GTListLoader.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = GTListLoader.m; sourceTree = "<group>"; };
 		BCA4334A2402D40900F04F8F /* GTListItem.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = GTListItem.h; sourceTree = "<group>"; };
 		BCA4334B2402D40900F04F8F /* GTListItem.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = GTListItem.m; sourceTree = "<group>"; };
+		BCB1653E2407B4F600D8E42C /* GTVedioCoverViewCollecion.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = GTVedioCoverViewCollecion.h; sourceTree = "<group>"; };
+		BCB1653F2407B4F600D8E42C /* GTVedioCoverViewCollecion.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = GTVedioCoverViewCollecion.m; sourceTree = "<group>"; };
 		BCCA96D023EEF63D00C8D9F6 /* whatFuckingShitiOSApp.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = whatFuckingShitiOSApp.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		BCCA96D323EEF63D00C8D9F6 /* AppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AppDelegate.h; sourceTree = "<group>"; };
 		BCCA96D423EEF63D00C8D9F6 /* AppDelegate.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = AppDelegate.m; sourceTree = "<group>"; };
@@ -83,6 +86,17 @@
 				CBECE472AFADC6798B1EE09F /* libPods-whatFuckingShitiOSApp.a */,
 			);
 			name = Frameworks;
+			sourceTree = "<group>";
+		};
+		BC991DE32407B2A9003AE3A6 /* VedioController */ = {
+			isa = PBXGroup;
+			children = (
+				BCCA973623F02AE200C8D9F6 /* GTPicViewController.h */,
+				BCCA973723F02AE200C8D9F6 /* GTPicViewController.m */,
+				BCB1653E2407B4F600D8E42C /* GTVedioCoverViewCollecion.h */,
+				BCB1653F2407B4F600D8E42C /* GTVedioCoverViewCollecion.m */,
+			);
+			path = VedioController;
 			sourceTree = "<group>";
 		};
 		BCA33FAD24001341009BC6A1 /* NewsController */ = {
@@ -157,6 +171,7 @@
 		BCCA96D223EEF63D00C8D9F6 /* whatFuckingShitiOSApp */ = {
 			isa = PBXGroup;
 			children = (
+				BC991DE32407B2A9003AE3A6 /* VedioController */,
 				BCA33FAD24001341009BC6A1 /* NewsController */,
 				BCCA96D323EEF63D00C8D9F6 /* AppDelegate.h */,
 				BCCA96D423EEF63D00C8D9F6 /* AppDelegate.m */,
@@ -167,8 +182,6 @@
 				BCCA96E123EEF63F00C8D9F6 /* LaunchScreen.storyboard */,
 				BCCA96E423EEF63F00C8D9F6 /* Info.plist */,
 				BCCA96E523EEF63F00C8D9F6 /* main.m */,
-				BCCA973623F02AE200C8D9F6 /* GTPicViewController.h */,
-				BCCA973723F02AE200C8D9F6 /* GTPicViewController.m */,
 				BCE8B88823F119DD0058F258 /* GtRecommendViewController.h */,
 				BCE8B88923F119DD0058F258 /* GtRecommendViewController.m */,
 			);
@@ -273,6 +286,7 @@
 			files = (
 				BCE8B89023F2E1580058F258 /* GTDetailViewController.m in Sources */,
 				BCA33FAC23FEC0DE009BC6A1 /* GTDeleteCellView.m in Sources */,
+				BCB165402407B4F600D8E42C /* GTVedioCoverViewCollecion.m in Sources */,
 				BCE8B88D23F16FEB0058F258 /* GTNormalTableViewCell.m in Sources */,
 				BCCA96DB23EEF63D00C8D9F6 /* GTNewsViewController.m in Sources */,
 				BCCA973823F02AE200C8D9F6 /* GTPicViewController.m in Sources */,

@@ -31,49 +31,49 @@ source 'https://mirrors.tuna.tsinghua.edu.cn/git/CocoaPods/Specs.git'
 > 文件创建、删除
 
 ```
-//获取缓存文件目录
-NSArray  *pathArray = NSSearchPathForDirectoriesInDomains(NSCachesDirectory, NSUserDomainMask, YES);
-NSString *cachePath = [pathArray firstObject];
+    //获取缓存文件目录
+    NSArray  *pathArray = NSSearchPathForDirectoriesInDomains(NSCachesDirectory, NSUserDomainMask, YES);
+    NSString *cachePath = [pathArray firstObject];
     
-//创建fileManager
-NSFileManager *fileManager = [NSFileManager defaultManager];
+    //创建fileManager
+    NSFileManager *fileManager = [NSFileManager defaultManager];
     
-//创建CachePeanut文件夹
-NSString *dataPath = [cachePath stringByAppendingPathComponent:@"CachePeanut"];
-NSError *createError;
-[fileManager createDirectoryAtPath:dataPath withIntermediateDirectories:YES attributes:Nil error:&createError];
+    //创建CachePeanut文件夹
+    NSString *dataPath = [cachePath stringByAppendingPathComponent:@"CachePeanut"];
+    NSError *createError;
+    [fileManager createDirectoryAtPath:dataPath withIntermediateDirectories:YES attributes:Nil error:&createError];
     
-//在文件夹中创建文件filePeanut
-NSString *filePeanut = [dataPath stringByAppendingPathComponent:@"filePeanut"];
-//文件内容
-NSData *content = [@"文件内容" dataUsingEncoding:NSUTF8StringEncoding];
-//开始创建文件
-[fileManager createFileAtPath:filePeanut contents:content attributes:nil];
+    //在文件夹中创建文件filePeanut
+    NSString *filePeanut = [dataPath stringByAppendingPathComponent:@"filePeanut"];
+    //文件内容
+    NSData *content = [@"文件内容" dataUsingEncoding:NSUTF8StringEncoding];
+    //开始创建文件
+    [fileManager createFileAtPath:filePeanut contents:content attributes:nil];
     
-//判断文件是否存在
-BOOL fileExist= [fileManager fileExistsAtPath:filePeanut];
+    //判断文件是否存在
+    BOOL fileExist= [fileManager fileExistsAtPath:filePeanut];
     
-//删除文件
-if (fileExist) {
+    //删除文件
+    if (fileExist) {
         [fileManager removeItemAtPath:filePeanut error:nil];
-}
+    }
 ```
 
 - NSFileHandle
 > 文件读取、修改
 
 ```
-//在文件末尾追加内容  filePeanut 是上文中未被删除的文件地址
-NSFileHandle *fileHandle = [NSFileHandle fileHandleForUpdatingAtPath:filePeanut];
-//文件指针指向末尾
-[fileHandle seekToEndOfFile];
-NSString *addContent = @"这是追加的内容";
-//设置utf8编码并进行内容追加写入
-[fileHandle writeData:[addContent dataUsingEncoding:NSUTF8StringEncoding]];
-//刷新文件
-[fileHandle synchronizeFile];
-//关闭文件句柄
-[fileHandle closeFile];
+    //在文件末尾追加内容  filePeanut 是上文中未被删除的文件地址
+    NSFileHandle *fileHandle = [NSFileHandle fileHandleForUpdatingAtPath:filePeanut];
+    //文件指针指向末尾
+    [fileHandle seekToEndOfFile];
+    NSString *addContent = @"这是追加的内容";
+    //设置utf8编码并进行内容追加写入
+    [fileHandle writeData:[addContent dataUsingEncoding:NSUTF8StringEncoding]];
+    //刷新文件
+    [fileHandle synchronizeFile];
+    //关闭文件句柄
+    [fileHandle closeFile];
 ```
 ## NSDictionary字典
 
@@ -145,7 +145,80 @@ NSLog(@"%@",contents);
 ## 关系型数据库
 - SQLite/FMDB/WCDB/CoreData
 ## 线程管理
+- NSThread/GCD/NSOperation/Runloop
 
+---
+
+- NSThread 多线程处理耗时的图片加载
+
+
+```
+//图片展示 线程优化
+//线程创建
+NSThread *imageThread = [[NSThread alloc] initWithBlock:^{
+    NSURL *imageUrl = [NSURL URLWithString:@"http://learn.laravel.com/ios.png"];
+    self.rightImageView.image = [UIImage imageWithData:[NSData dataWithContentsOfURL:imageUrl]];
+}];
+//线程命名
+imageThread.name = @"imageThread";
+//线程开始
+[imageThread start];
+
+//不建议这样写  因为 ：
+-[UIImageView setImage:] must be used from main thread only
+```
+- GCD
+
+
+```
+//获取队列
+dispatch_queue_global_t imageQueue = dispatch_get_global_queue(DISPATCH_QUEUE_PRIORITY_DEFAULT, 0);
+//获取主队列
+dispatch_queue_main_t mainQueue = dispatch_get_main_queue();
+//异步执行imageQueue
+dispatch_async(imageQueue, ^{
+    UIImage * image = [UIImage imageWithData:[NSData dataWithContentsOfURL:[NSURL URLWithString:@"http://learn.laravel.com/ios.png"]]];
+    //在主队列中异步执行self.rightImageView.image = image;
+    dispatch_async(mainQueue, ^{
+        self.rightImageView.image = image;
+    });
+});
+```
+## 开源图片管理框架
+- SDWebImage\FastImageCache\LKImageKit
+
+---
+- SDWebImage
+
+```
+[self.rightImageView sd_setImageWithURL:[NSURL URLWithString:@"http://learn.laravel.com/ios.png"] completed:^(UIImage * _Nullable image, NSError * _Nullable error, SDImageCacheType cacheType, NSURL * _Nullable imageURL) {
+        //
+    }];
+```
+## 音视频框架
+- AVKit
+- AVFoundation
+
+```
+NSURL *vedioUrl = [NSURL URLWithString:_vedioUrl];
+//创建播放资源
+AVAsset *avaset = [AVAsset assetWithURL:vedioUrl];
+AVPlayerItem *vedioItem = [AVPlayerItem playerItemWithAsset:avaset];
+//生成播放器
+AVPlayer *avplayer = [AVPlayer playerWithPlayerItem:vedioItem];
+    //提供画面展示
+    AVPlayerLayer *avplayerlaver = [AVPlayerLayer playerLayerWithPlayer:avplayer];
+    //设置画面大小
+    avplayerlaver.frame = _converView.bounds;
+    [_converView.layer addSublayer:avplayerlaver];
+    [avplayer play];
+```
+
+
+
+## 本地图片适配
+- Bundle
+- ImageAsset
 
 
 

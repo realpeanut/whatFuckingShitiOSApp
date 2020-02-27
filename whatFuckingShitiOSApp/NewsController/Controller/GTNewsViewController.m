@@ -103,9 +103,9 @@
     //items.
     NSNumberFormatter* numberFormatter = [[NSNumberFormatter alloc] init];
     //整型转为字符串
-    NSString *B = [numberFormatter stringFromNumber:[NSNumber numberWithLong:items.detail]];
+    NSString *B = [numberFormatter stringFromNumber:[NSNumber numberWithLong:items.articleId]];
     
-    NSString *url = @"http://learn.laravel.com/api/live/detail?id=";
+    NSString *url = @"http://learn.laravel.com/api/article/detail?id=";
     GTDetailViewController * uvc = [[GTDetailViewController alloc] initWithStringUrl:[url stringByAppendingString:B]];
     uvc.title = [NSString stringWithFormat:@"上一页ID=%@",@(indexPath.row)];
     uvc.view.backgroundColor = [UIColor blueColor];

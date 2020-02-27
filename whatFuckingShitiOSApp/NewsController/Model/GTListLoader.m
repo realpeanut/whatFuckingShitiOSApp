@@ -22,7 +22,7 @@
 //        NSLog(@"从本地取数据");
 //    }
     
-    NSString *urlString = @"http://learn.laravel.com/api/live/list";
+    NSString *urlString = @"http://learn.laravel.com/api/article/articleList";
     NSURL *listURL = [NSURL URLWithString:urlString];
     NSURLSession *session = [NSURLSession sharedSession];
     __weak typeof(self) weakSelf= self;
