@@ -8,6 +8,7 @@
 
 #import "GTDetailViewController.h"
 #import <WebKit/WebKit.h>
+#import <AVFoundation/AVFoundation.h>
 
 @interface GTDetailViewController ()<WKNavigationDelegate>
 @property(nonatomic,strong,readwrite) WKWebView *wkWebView;
@@ -22,6 +23,7 @@
     if (self) {
         _detailUrl = url;
     }
+    [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(_handlePlayEnd) name:AVPlayerItemDidPlayToEndTimeNotification object:nil];
     return self;
 }
 
@@ -62,6 +64,10 @@
 -(void)dealloc
 {
     [self.wkWebView removeObserver:self forKeyPath:@"estimatedProgress"];
+}
+
+-(void)_handlePlayEnd{
+    NSLog(@"详情监听到了视频");
 }
 
 @end

@@ -12,6 +12,7 @@
 #import "GTDeleteCellView.h"
 #import "GTListLoader.h"
 #import "GTListItem.h"
+#import <AVFoundation/AVFoundation.h>
 
 @interface GTNewsViewController ()<UITableViewDataSource,UITableViewDelegate,GTNormalTableViewCellDelegate>//实现UITableViewDataSource协议
 @property(nonatomic,strong,readwrite)GTListLoader *listLoader;
@@ -28,6 +29,7 @@
     if (self) {
         
     }
+    [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(_handlePlayEnd) name:AVPlayerItemDidPlayToEndTimeNotification object:nil];
     return self;
 }
 - (void)viewDidLoad {
@@ -127,6 +129,11 @@
     GTDeleteCellView *deleteView = [[GTDeleteCellView alloc] initWithFrame:self.view.bounds];
     [deleteView showDeleteViewFromPoint:CGPointMake(0, 0)];
     
+}
+
+-(void)_handlePlayEnd
+{
+    NSLog(@"列表监听到视频");
 }
 
 @end

@@ -206,12 +206,12 @@ AVAsset *avaset = [AVAsset assetWithURL:vedioUrl];
 AVPlayerItem *vedioItem = [AVPlayerItem playerItemWithAsset:avaset];
 //生成播放器
 AVPlayer *avplayer = [AVPlayer playerWithPlayerItem:vedioItem];
-    //提供画面展示
-    AVPlayerLayer *avplayerlaver = [AVPlayerLayer playerLayerWithPlayer:avplayer];
-    //设置画面大小
-    avplayerlaver.frame = _converView.bounds;
-    [_converView.layer addSublayer:avplayerlaver];
-    [avplayer play];
+//提供画面展示
+AVPlayerLayer *avplayerlaver = [AVPlayerLayer playerLayerWithPlayer:avplayer];
+//设置画面大小
+avplayerlaver.frame = _converView.bounds;
+[_converView.layer addSublayer:avplayerlaver];
+[avplayer play];
 ```
 
 
