@@ -214,6 +214,36 @@ avplayerlaver.frame = _converView.bounds;
 [avplayer play];
 ```
 
+- NSNotification监听事件
+
+```
+[[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(_handlePlayEnd) name:AVPlayerItemDidPlayToEndTimeNotification object:nil];
+```
+- KVO
+
+```
+//KVO监听_vedioItem的status 属性
+[_vedioItem addObserver:self forKeyPath:@"status" options:NSKeyValueObservingOptionNew context:nil];
+
+
+//回调函数进行回调处理
+
+-(void)observeValueForKeyPath:(NSString *)keyPath ofObject:(id)object change:(NSDictionary<NSKeyValueChangeKey,id> *)change context:(void *)context
+{
+    if ([keyPath isEqualToString:@"status"]) {
+        //是否处于AVPlayerItemStatusReadyToPlay状态
+        if (((NSNumber *)[change objectForKey:NSKeyValueChangeNewKey]).integerValue == AVPlayerItemStatusReadyToPlay) {
+            //进行播放
+            [_avplayer play];
+            NSLog(@"监听成功，进行播放");
+        } else {
+            NSLog(@"资源加载失败");
+        }
+        
+    }
+}
+```
+
 
 
 ## 本地图片适配
