@@ -8,7 +8,7 @@
 
 #import "GTNewsViewController.h"
 #import "GTNormalTableViewCell.h"
-#import "GTDetailViewController.h"
+#import "GTMediator.h"
 #import "GTDeleteCellView.h"
 #import "GTListLoader.h"
 #import "GTListItem.h"
@@ -104,14 +104,17 @@
     
     //items.
     NSNumberFormatter* numberFormatter = [[NSNumberFormatter alloc] init];
+    
     //整型转为字符串
     NSString *B = [numberFormatter stringFromNumber:[NSNumber numberWithLong:items.articleId]];
     
     NSString *url = @"http://learn.laravel.com/api/article/detail?id=";
-    GTDetailViewController * uvc = [[GTDetailViewController alloc] initWithStringUrl:[url stringByAppendingString:B]];
-    uvc.title = [NSString stringWithFormat:@"上一页ID=%@",@(indexPath.row)];
-    uvc.view.backgroundColor = [UIColor blueColor];
-    [self.navigationController pushViewController:uvc animated:YES];
+    
+    //__kindof UIViewController *detailViewController = [GTMediator detailViewControllerWithUrl:[url stringByAppendingString:B]];
+    //detailViewController.title = [NSString stringWithFormat:@"上一页ID=%@",@(indexPath.row)];
+    
+    [GTMediator openUrl:@"detail://" params:@{@"url":[url stringByAppendingString:B],@"controller":self.navigationController}];
+    
     [[NSUserDefaults standardUserDefaults] setBool:YES forKey:B];
 }
 

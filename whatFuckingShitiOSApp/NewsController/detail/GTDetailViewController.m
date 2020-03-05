@@ -9,6 +9,7 @@
 #import "GTDetailViewController.h"
 #import <WebKit/WebKit.h>
 #import <AVFoundation/AVFoundation.h>
+#import "GTMediator.h"
 
 @interface GTDetailViewController ()<WKNavigationDelegate>
 @property(nonatomic,strong,readwrite) WKWebView *wkWebView;
@@ -17,6 +18,16 @@
 @end
 
 @implementation GTDetailViewController
+
++(void)load
+{
+    [GTMediator registerScheme:@"detail://" processBlock:^(NSDictionary * _Nonnull parameters) {
+        NSString *url = (NSString *)[parameters objectForKey:@"url"];
+        UINavigationController *navigationController = (UINavigationController *)[parameters objectForKey:@"controller"];
+        GTDetailViewController *controller = [[GTDetailViewController alloc] initWithStringUrl:url];
+        [navigationController pushViewController:controller animated:YES];
+    }];
+}
 
 -(instancetype)initWithStringUrl:(NSString *)url{
     self = [super init];

@@ -59,7 +59,10 @@
 
 -(void)clickFunc
 {
-    NSLog(@"clickFunc");
+    [[UIApplication sharedApplication] openURL:[NSURL URLWithString:@"test2://"] options:nil completionHandler:^(BOOL success) {
+        NSLog(@"唤起APP");
+    }];
+    
 }
 
 - (BOOL)gestureRecognizerShouldBegin:(UIGestureRecognizer *)gestureRecognizer
@@ -81,6 +84,7 @@
 
 - (void)scrollViewDidScroll:(UIScrollView *)scrollView//scroll滑动时触发
 {
+    
 //    NSLog(@"scrollViewDidScroll---%f",scrollView.contentOffset.y);
 }
 

@@ -8,6 +8,7 @@
 
 #import "GTPicViewController.h"
 #import "GTVedioCoverViewCollecion.h"
+#import "GTVedioToolBar.h"
 
 @interface GTPicViewController ()<UICollectionViewDelegate, UICollectionViewDataSource>
 
@@ -26,11 +27,12 @@
 
 - (void)viewDidLoad {
     [super viewDidLoad];
-    //self.view.backgroundColor = [UIColor whiteColor];
     UICollectionViewFlowLayout *uiCollectionViewFlowLayout = [[UICollectionViewFlowLayout alloc] init];
     uiCollectionViewFlowLayout.minimumLineSpacing = 10;
     uiCollectionViewFlowLayout.minimumInteritemSpacing = 10;
-    uiCollectionViewFlowLayout.itemSize = CGSizeMake(self.view.bounds.size.width, self.view.bounds.size.width * 9 / 16);
+//    uiCollectionViewFlowLayout.itemSize = CGSizeMake(self.view.bounds.size.width, self.view.bounds.size.width * 9 / 16 + GTVedioToolBarHeight);
+    
+     uiCollectionViewFlowLayout.itemSize = CGSizeMake(self.view.bounds.size.width, self.view.bounds.size.width * 9 / 16);
     UICollectionView *uiCollectionView = [[UICollectionView alloc] initWithFrame:self.view.bounds collectionViewLayout:uiCollectionViewFlowLayout];
 
     uiCollectionView.delegate = self;
@@ -54,14 +56,5 @@
     }
     return cell;
 }
-
-//- (CGSize)collectionView:(UICollectionView *)collectionView layout:(UICollectionViewLayout*)collectionViewLayout sizeForItemAtIndexPath:(NSIndexPath *)indexPath
-//{
-//    if (indexPath.item%3 == 0) {
-//        return CGSizeMake(self.view.frame.size.width, 100);
-//    } else {
-//        return CGSizeMake((self.view.frame.size.width - 10)/2, 100);
-//    }
-//}
 
 @end

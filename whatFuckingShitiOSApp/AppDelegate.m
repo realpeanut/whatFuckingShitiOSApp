@@ -10,6 +10,8 @@
 #import "GTNewsViewController.h"
 #import "GTPicViewController.h"
 #import "GtRecommendViewController.h"
+#import "GTSplashView.h"
+#import "GTLocation.h"
 
 @interface AppDelegate ()<UITabBarControllerDelegate>
 
@@ -44,7 +46,11 @@
     UINavigationController * uiNavigationController = [[UINavigationController alloc] initWithRootViewController:tabbarController];
     self.window.rootViewController = uiNavigationController;
     [self.window makeKeyAndVisible];
-        
+    [self.window addSubview:({
+        GTSplashView *sp = [[GTSplashView alloc] initWithFrame:self.window.bounds];
+        sp;
+    })];
+    [[GTLocation locationManager] checkLocationAuthorization];
     return YES;
 }
 
@@ -56,6 +62,11 @@
 
 #pragma mark - UISceneSession lifecycle
 
+//APP跳转参数接收
+-(BOOL)application:(UIApplication *)app openURL:(NSURL *)url options:(NSDictionary<UIApplicationOpenURLOptionsKey,id> *)options
+{
+    return YES;
+}
 
 
 

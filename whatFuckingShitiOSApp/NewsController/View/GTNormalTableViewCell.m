@@ -9,6 +9,7 @@
 #import "GTNormalTableViewCell.h"
 #import "GTListItem.h"
 #import <SDWebImage.h>
+#import "GTScreen.h"
 
 @interface GTNormalTableViewCell ()
 
@@ -29,7 +30,7 @@
 
     if (self) {
         [self.contentView addSubview:({
-            self.titleLabel = [[UILabel alloc] initWithFrame:CGRectMake(20, 50, 300, 20)];
+            self.titleLabel = [[UILabel alloc] initWithFrame:UICGRect(20, 50, 300, 20)];
             //self.titleLabel.backgroundColor = [UIColor whiteColor];
             self.titleLabel.font = [UIFont systemFontOfSize:16];
             self.titleLabel.textColor = [UIColor blackColor];
@@ -39,7 +40,7 @@
         })];
 
         [self.contentView addSubview:({
-            self.sourceLabel = [[UILabel alloc] initWithFrame:CGRectMake(20, 80, 20, 30)];
+            self.sourceLabel = [[UILabel alloc] initWithFrame:UICGRect(20, 80, 20, 30)];
             //self.sourceLabel.backgroundColor = [UIColor whiteColor];
             self.sourceLabel.font = [UIFont systemFontOfSize:12];
             self.sourceLabel.textColor = [UIColor blackColor];
@@ -55,7 +56,7 @@
 //        })];
 
         [self.contentView addSubview:({
-            self.timeLabel = [[UILabel alloc] initWithFrame:CGRectMake(150, 80, 50, 20)];
+            self.timeLabel = [[UILabel alloc] initWithFrame:UICGRect(150, 80, 50, 20)];
             //self.timeLabel.backgroundColor = [UIColor whiteColor];
             self.timeLabel.font = [UIFont systemFontOfSize:12];
             self.timeLabel.textColor = [UIColor blackColor];
@@ -64,13 +65,13 @@
 
         //图片
         [self.contentView addSubview:({
-            self.rightImageView = [[UIImageView alloc] initWithFrame:CGRectMake(300, 15, 70, 70)];
+            self.rightImageView = [[UIImageView alloc] initWithFrame:UICGRect(300, 15, 70, 70)];
             self.rightImageView.contentMode = UIViewContentModeScaleAspectFit;
             self.rightImageView;
         })];
         //按钮视图
         [self.contentView addSubview:({
-            self.uiButton = [[UIButton alloc] initWithFrame:CGRectMake(260, 80, 30, 20)];
+            self.uiButton = [[UIButton alloc] initWithFrame:UICGRect(260, 80, 30, 20)];
             [self.uiButton setTitle:@"X" forState:UIControlStateNormal];//通常状态
             //[self.uiButton setTitle:@"V" forState:UIControlStateHighlighted];//点击状态
             [self.uiButton addTarget:self action:@selector(deleteButtonfunc) forControlEvents:UIControlEventTouchUpInside];//绑定点击事件
@@ -112,12 +113,12 @@
     self.sourceLabel.text = [numberFormatter stringFromNumber:[NSNumber numberWithLong:item.views]];
     [self.sourceLabel sizeToFit];
 
-    self.commentLabel.frame = CGRectMake(self.sourceLabel.frame.origin.x + self.sourceLabel.frame.size.width + 15, self.commentLabel.frame.origin.y, self.commentLabel.frame.size.width, self.commentLabel.frame.size.height);
+    self.commentLabel.frame = CGRectMake(self.sourceLabel.frame.origin.x + self.sourceLabel.frame.size.width + UI(15), self.commentLabel.frame.origin.y, self.commentLabel.frame.size.width, self.commentLabel.frame.size.height);
 
     self.timeLabel.text = item.date;
     [self.timeLabel sizeToFit];
 
-    self.timeLabel.frame = CGRectMake(self.commentLabel.frame.origin.x + self.commentLabel.frame.size.width + 15, self.commentLabel.frame.origin.y, self.timeLabel.frame.size.width, self.timeLabel.frame.size.height);
+    self.timeLabel.frame = CGRectMake(self.commentLabel.frame.origin.x + self.commentLabel.frame.size.width + UI(15), self.commentLabel.frame.origin.y, self.timeLabel.frame.size.width, self.timeLabel.frame.size.height);
 
     //图片展示 线程优化
 //    NSThread *imageThread = [[NSThread alloc] initWithBlock:^{

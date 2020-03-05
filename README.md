@@ -249,8 +249,14 @@ avplayerlaver.frame = _converView.bounds;
 ## 本地图片适配
 - Bundle
 - ImageAsset
+## AutoLayout
 
+- VFL
 
+```
+NSString *nsflString = @"H:|-15-[_avatorImageView]-0-[_nickLabel]-(>=0)-[_commentImageView(==_avatorImageView)]-0-[_commentLabel]-15-[_likeImageView(==_avatorImageView)]-0-[_likeLabel]-15-[_shareImageView(==_avatorImageView)]-0-[_shareLabel]-15-|";
+[NSLayoutConstraint activateConstraints:[NSLayoutConstraint constraintsWithVisualFormat:nsflString options:NSLayoutFormatAlignAllCenterY metrics:nil views:NSDictionaryOfVariableBindings(_avatorImageView,_nickLabel,_commentImageView,_commentLabel,_likeImageView,_likeLabel,_shareImageView,_shareLabel)]];
+```
 
 
 
